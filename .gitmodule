@@ -1,0 +1,4 @@
+[submodule "omniapi"]
+  path = explorer/omniapi
+  url = https://github.com/ang-st/omniapi.git
+
