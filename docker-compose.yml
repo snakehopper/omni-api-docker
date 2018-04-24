@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  peatio:
+  omniapi:
     build:
       context: explorer
       dockerfile: Dockerfile
@@ -11,7 +11,11 @@ services:
       - redis
     ports:
       - "8080:8080"
-
+    environment:
+      OMNIDB_ENGINE_PASSWORD: changeme
+      OMNIDB_WWW_PASSWORD: changeme
+      OMNIDB_DATABASE: omni
+      DBHOST: db
   omni_core:
     image: mpugach/omnicored:v0.3.0-curl-alpine
     volumes:
