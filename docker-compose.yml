@@ -22,7 +22,7 @@ services:
       - omnicore:/home/bitcoin/.bitcoin
     ports:
       - "18532:18332"
-    command: "-server -regtest -txindex -rpcuser=username -rpcpassword=password -rpcallowip=172.0.0.0/8 -printtoconsole"
+    command: "-server -testnet -txindex -rpcuser=username -rpcpassword=password -rpcallowip=172.0.0.0/8 -printtoconsole"
   db:
     image: postgres:alpine
     restart: always
