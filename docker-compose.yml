@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  peatio:
+    build:
+      context: explorer
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+      - omni_core
+      - redis
+    ports:
+      - "8080:8080"
+
+  omni_core:
+    image: mpugach/omnicored:v0.3.0-curl-alpine
+    volumes:
+      - omnicore:/home/bitcoin/.bitcoin
+    ports:
+      - "18532:18332"
+    command: "-server -regtest -txindex -rpcuser=username -rpcpassword=password -rpcallowip=172.0.0.0/8 -printtoconsole"
+  db:
+    image: postgres:alpine
+    restart: always
+    volumes:
+      - pgdata:/pgdata
+    environment:
+      POSTGRES_PASSWORD: changeme
+      POSTGRES_DB: omni
+      PGDATA: /pgdata
+  redis:
+    image: redis:alpine
+    restart: always
+
+
+volumes:
+  pgdata:
+  bitcoin:
+  omnicore:
+
