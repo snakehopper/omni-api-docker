@@ -19,5 +19,5 @@ RUN mkdir /root/.bitcoin && mkdir /root/.omni
 COPY bitcoin.conf /root/.bitcoin
 COPY sql.conf /root/.omni/
 EXPOSE 8080
-ENTRYPOINT ["bash", "startApi.sh"]
+CMD ["bash", "startApi.sh"]
 
