@@ -44,7 +44,7 @@ server {
         ##############
 
         ## Set this to reflect the location of the www directory within the omniapi repo.
-        root /home/ubuntu/omniapi/www/;
+        root /omniapi/www/;
         index index.htm index.html;
 
         ## Set this to reflect the location of the omni-redirects file within the omniwallet repo
